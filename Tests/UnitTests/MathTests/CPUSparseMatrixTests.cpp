@@ -104,7 +104,7 @@ BOOST_FIXTURE_TEST_CASE(CPUSparseMatrixMultiplyAndAdd, RandomSeedFixture)
 
     foreach_coord(row, col, dmMul)
     {
-        BOOST_CHECK(smMul(row, col) == dmMul(row, col));
+        BOOST_CHECK(abs(smMul(row, col) - dmMul(row, col)) < c_epsilonFloatE4);
     }
 
     SparseMatrix::MultiplyAndAdd(1, dm0, false, sm2, true, smMul);
@@ -112,7 +112,7 @@ BOOST_FIXTURE_TEST_CASE(CPUSparseMatrixMultiplyAndAdd, RandomSeedFixture)
 
     foreach_coord(row, col, dmMul)
     {
-        BOOST_CHECK(smMul(row, col) == dmMul(row, col));
+        BOOST_CHECK(abs(smMul(row, col) - dmMul(row, col)) < c_epsilonFloatE4);
     }
 }
 
